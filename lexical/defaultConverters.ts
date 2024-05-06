@@ -7,18 +7,20 @@ import { ListHTMLConverter, ListItemHTMLConverter } from "./converters/list";
 import { ParagraphHTMLConverter } from "./converters/paragraph";
 import { QuoteHTMLConverter } from "./converters/quote";
 import { TextHTMLConverter } from "./converters/text";
-import {UploadHTMLConverter} from "@/modules/blog/lexical/converters/upload";
+import { UploadHTMLConverter } from "./converters/upload";
 import { BlockHtmlConverter } from "./converters/blocks";
+import { HorizontalRuleHTMLConverter } from "./converters/hr";
 
 export const defaultHTMLConverters: HTMLConverter[] = [
     ParagraphHTMLConverter,
+    HeadingHTMLConverter,
     TextHTMLConverter,
     LinebreakHTMLConverter,
     LinkHTMLConverter,
-    HeadingHTMLConverter,
     QuoteHTMLConverter,
     ListHTMLConverter,
     ListItemHTMLConverter,
     UploadHTMLConverter,
     BlockHtmlConverter,
+    HorizontalRuleHTMLConverter,
 ];
