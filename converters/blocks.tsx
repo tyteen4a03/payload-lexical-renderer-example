@@ -2,7 +2,7 @@ import type { HTMLConverter } from "../types";
 import YoutubeBlock from "@/modules/blog/lexical/converters/blocks/YoutubeBlock";
 import GalleryBlock from "@/modules/blog/lexical/converters/blocks/GalleryBlock";
 import MediaBlock from "@/modules/blog/lexical/converters/blocks/InlineMediaBlock";
-import {SerializedBlockNode} from "@payloadcms/richtext-lexical";
+import type { SerializedBlockNode } from "@payloadcms/richtext-lexical";
 
 
 export const BlockHtmlConverter: HTMLConverter<SerializedBlockNode> = {

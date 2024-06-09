@@ -1,26 +1,25 @@
+import { serializeLexical } from "@/modules/core/richtext/lexical/serializeLexical";
+import type { Media, MediaBlock } from "@/payload-types";
+import type { SerializedUploadNode } from "@payloadcms/richtext-lexical";
+import Image from "next/image";
+import type { FC } from "react";
 import { Box, Flex } from "styled-system/jsx";
-import {FC} from "react";
-import Image from 'next/image';
-import {serializeLexical} from "@/modules/blog/lexical/serializeLexical";
-import {SerializedUploadNode} from "@payloadcms/richtext-lexical";
-// TODO: use payload-types as import
-import {Media} from "@/modules/core/graphql/__generated__/graphql";
 
-const InlineMediaBlock: FC<{node: SerializedUploadNode & { fields: { media: Media }}}> = async ({node}) => {
+const InlineMediaBlock: FC<{ node: SerializedUploadNode & { fields: MediaBlock } }> = async ({ node }) => {
     const fields = node.fields;
+    const media = fields.media as Media;
 
     return (
         <Flex margin={4} direction="column" alignItems="center">
             <Image
-                src={`http://localhost:3000${fields.media.sizes.blogText.url}`}
-                alt={fields.media.alt}
-                width={fields.media.sizes.blogText.width}
-                height={fields.media.sizes.blogText.height}
+                src={media.sizes.blogText.url}
+                alt={media.alt}
+                width={media.sizes.blogText.width}
+                height={media.sizes.blogText.height}
             />
-            <Box margin={2}>{fields.caption && await serializeLexical(fields.caption)}</Box>
-
+            <Box margin={2}>{fields.caption && (await serializeLexical(fields.caption))}</Box>
         </Flex>
-    )
+    );
 };
 
 export default InlineMediaBlock;

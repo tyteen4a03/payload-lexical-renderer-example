@@ -1,8 +1,7 @@
 import GalleryLightbox from "@/modules/core/richtext/lexical/converters/blocks/GalleryLightbox";
 import { serializeLexical } from "@/modules/core/richtext/lexical/serializeLexical";
-import type { Media } from "@/payload-types";
+import type { GalleryBlock as GalleryBlockType, Media } from "@/payload-types";
 import type { SerializedBlockNode } from "@payloadcms/richtext-lexical";
-import type { SerializedLexicalNode } from "lexical";
 import type { FC } from "react";
 import { css } from "styled-system/css";
 import { Box } from "styled-system/jsx";
@@ -10,7 +9,7 @@ import { bleed } from "styled-system/patterns";
 
 const GalleryBlock: FC<{
     node: SerializedBlockNode & {
-        value: { mediaList: { id: string; media: Media; caption: SerializedLexicalNode }[] };
+        value: GalleryBlockType;
     };
 }> = async ({ node }) => {
     const fields = node.fields;
