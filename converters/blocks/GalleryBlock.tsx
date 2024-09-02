@@ -2,16 +2,17 @@ import GalleryLightbox from "@/modules/core/richtext/lexical/converters/blocks/G
 import { serializeLexical } from "@/modules/core/richtext/lexical/serializeLexical";
 import type { GalleryBlock as GalleryBlockType, Media } from "@/payload-types";
 import type { SerializedBlockNode } from "@payloadcms/richtext-lexical";
-import type { FC } from "react";
 import { css } from "styled-system/css";
 import { Box } from "styled-system/jsx";
 import { bleed } from "styled-system/patterns";
 
-const GalleryBlock: FC<{
+interface GalleryBlockProps {
     node: SerializedBlockNode & {
         value: GalleryBlockType;
     };
-}> = async ({ node }) => {
+}
+
+const GalleryBlock = async ({ node }: GalleryBlockProps) => {
     const fields = node.fields;
 
     const slides = await Promise.all(

@@ -1,9 +1,8 @@
-import { Code } from '@/modules/core/ui/code';
-import { Text } from '@/modules/core/ui/text';
+import { Code, Text } from "@/modules/core/ui/primitives";
 import type { HTMLConverter } from "../types";
 
+import type { SerializedTextNode } from "@payloadcms/richtext-lexical";
 import { NodeFormat } from "../nodeFormat";
-import {SerializedTextNode} from "lexical/nodes/LexicalTextNode";
 
 export const TextHTMLConverter: HTMLConverter<SerializedTextNode> = {
     converter({ node }) {
@@ -16,10 +15,18 @@ export const TextHTMLConverter: HTMLConverter<SerializedTextNode> = {
             text = <em>{text}</em>;
         }
         if (node.format & NodeFormat.IS_STRIKETHROUGH) {
-            text = <Text as="span" textDecoration="line-through">{text}</Text>;
+            text = (
+                <Text as="span" textDecoration="line-through">
+                    {text}
+                </Text>
+            );
         }
         if (node.format & NodeFormat.IS_UNDERLINE) {
-            text = <Text as="span" textDecoration="underline">{text}</Text>;
+            text = (
+                <Text as="span" textDecoration="underline">
+                    {text}
+                </Text>
+            );
         }
         if (node.format & NodeFormat.IS_CODE) {
             text = <Code>{text}</Code>;

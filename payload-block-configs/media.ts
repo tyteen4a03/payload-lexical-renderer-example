@@ -1,5 +1,5 @@
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import type { Block } from "payload/types";
+import type { Block } from "payload";
 
 const MediaBlock: Block = {
     slug: "media",
@@ -14,6 +14,36 @@ const MediaBlock: Block = {
             name: "caption",
             type: "richText",
             editor: lexicalEditor(),
+        },
+        {
+            type: "row",
+            fields: [
+                {
+                    name: "position",
+                    type: "select",
+                    required: true,
+                    defaultValue: "inline-start",
+                    options: [
+                        {
+                            label: "Inline Start",
+                            value: "inline-start",
+                        },
+                        {
+                            label: "Inline End",
+                            value: "inline-end",
+                        },
+                    ],
+                },
+                {
+                    name: "width",
+                    type: "text",
+                    required: true,
+                    defaultValue: "100%",
+                    admin: {
+                        description: "Accepts any valid CSS width value. Prefer percentages.",
+                    },
+                },
+            ],
         },
     ],
 };

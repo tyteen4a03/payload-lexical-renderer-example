@@ -1,5 +1,5 @@
+import type { SerializedLineBreakNode } from "lexical";
 import type { HTMLConverter } from "../types";
-import {SerializedLineBreakNode} from "lexical";
 
 export const LinebreakHTMLConverter: HTMLConverter<SerializedLineBreakNode> = {
     converter() {

@@ -2,12 +2,15 @@
 
 import type { YoutubeBlock as YoutubeBlockType } from "@/payload-types";
 import type { SerializedBlockNode } from "@payloadcms/richtext-lexical";
-import type { FC } from "react";
 import Youtube from "react-lazyload-youtube";
 import "react-lazyload-youtube/dist/index.css";
 import { Box, Flex } from "styled-system/jsx";
 
-const YoutubeBlock: FC<{ node: SerializedBlockNode & { fields: YoutubeBlockType } }> = ({ node }) => {
+interface YoutubeBlockProps {
+    node: SerializedBlockNode & { fields: YoutubeBlockType };
+}
+
+const YoutubeBlock = ({ node }: YoutubeBlockProps) => {
     const fields = node.fields;
 
     return (

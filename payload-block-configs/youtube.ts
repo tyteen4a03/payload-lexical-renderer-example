@@ -1,4 +1,4 @@
-import type { Block } from "payload/types";
+import type { Block } from "payload";
 
 const YoutubeBlock: Block = {
     slug: "youtube",

@@ -37,7 +37,7 @@ export async function convertLexicalNodesToReactNode({
                 if (unknownConverter) {
                     return {
                         lexicalNode: node,
-                        reactNode: unknownConverter.converter({
+                        reactNode: await unknownConverter.converter({
                             childIndex: i,
                             converters,
                             node,
@@ -45,12 +45,12 @@ export async function convertLexicalNodesToReactNode({
                         }),
                     };
                 }
-                return { lexicalNode: node, reactNode: <span>unknown node</span> };
+                return { lexicalNode: node, reactNode: <span>unknown node {node.type}</span> };
             }
 
             return {
                 lexicalNode: node,
-                reactNode: converterForNode.converter({
+                reactNode: await converterForNode.converter({
                     childIndex: i,
                     converters,
                     node,
@@ -62,7 +62,7 @@ export async function convertLexicalNodesToReactNode({
 
     return (
         <Fragment>
-            {htmlArray.map(({ lexicalNode, reactNode }, idx) => {
+            {htmlArray.map(({ reactNode }, idx) => {
                 // biome-ignore lint/suspicious/noArrayIndexKey: Index does not change
                 return <Fragment key={idx}>{reactNode}</Fragment>;
             })}

@@ -1,7 +1,7 @@
 import type { HTMLConverter } from "../types";
 
+import type { SerializedQuoteNode } from "@lexical/rich-text";
 import { convertLexicalNodesToReactNode } from "../serializeLexical";
-import {SerializedQuoteNode} from "@lexical/rich-text";
 
 export const QuoteHTMLConverter: HTMLConverter<SerializedQuoteNode> = {
     async converter({ converters, node, parent }) {

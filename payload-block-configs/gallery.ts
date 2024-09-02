@@ -1,5 +1,5 @@
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import type { Block } from "payload/types";
+import type { Block } from "payload";
 import MediaBlock from "./media";
 import YoutubeBlock from "./youtube";
 

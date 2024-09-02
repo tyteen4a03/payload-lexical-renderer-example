@@ -1,9 +1,9 @@
 import type { HTMLConverter } from "../types";
 
-import { convertLexicalNodesToReactNode } from "../serializeLexical";
+import { Link } from "@/modules/core/ui/primitives";
+import type { SerializedLinkNode } from "@payloadcms/richtext-lexical";
 import NextLink from "next/link";
-import {Link} from "@/modules/core/ui/link";
-import {SerializedLinkNode} from "@payloadcms/richtext-lexical";
+import { convertLexicalNodesToReactNode } from "../serializeLexical";
 
 export const LinkHTMLConverter: HTMLConverter<SerializedLinkNode> = {
     async converter({ converters, node, parent }) {
@@ -29,7 +29,13 @@ export const LinkHTMLConverter: HTMLConverter<SerializedLinkNode> = {
             }
         }
 
-        return <NextLink href={href} legacyBehavior passHref><Link rel={rel} textDecoration="underline">{childrenText}</Link></NextLink>;
+        return (
+            <NextLink href={href} legacyBehavior passHref>
+                <Link rel={rel} textDecoration="underline">
+                    {childrenText}
+                </Link>
+            </NextLink>
+        );
     },
     nodeTypes: ["link", "autolink"],
 };

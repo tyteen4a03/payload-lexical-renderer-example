@@ -1,7 +1,7 @@
-import type {ReactNode} from "react";
-import type {SerializedLexicalNode} from "lexical";
+import type { SerializedLexicalNode } from "lexical";
+import type { ReactNode } from "react";
 
-export type HTMLConverter<T = SerializedLexicalNode> = {
+export type HTMLConverter<T extends SerializedLexicalNode = SerializedLexicalNode> = {
     converter: ({
         childIndex,
         converters,
