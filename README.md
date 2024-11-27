@@ -1,5 +1,9 @@
 # Lexical renderer example
 
+NOTE: Payload 3.2.0 [now comes with its own Lexical -> JSX converter](https://payloadcms.com/docs/lexical/converters#lexical-jsx). This example will be updated soon on how to render custom blocks.
+
+------
+
 Adapted from [@AlessioGr](https://github.com/AlessioGr)'s work. This is an example of what you can implement to render Lexical as React nodes. You're expected to modify the example yourself and adapt this to your needs.
 
 This renderer provides sample implementation for (frontend only - does not update the Lexical editor sadly):
