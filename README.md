@@ -1,6 +1,6 @@
 # Lexical renderer example
 
-NOTE: Payload 3.2.0 [now comes with its own Lexical -> JSX converter](https://payloadcms.com/docs/lexical/converters#lexical-jsx). This example will be updated soon on how to render custom blocks.
+NOTE: Payload 3.2.0 [now comes with its own Lexical -> JSX converter](https://payloadcms.com/docs/lexical/converters#lexical-jsx). This example will be updated soon on how to render custom blocks, but you can probably skip this repo and go straight to Payload's official implementation.
 
 ------
 
